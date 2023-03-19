@@ -1,0 +1,24 @@
+menu{
+    position: fixed ;
+    width: 1440px  ;
+    height: 116px  ;
+    left: 0px  ;
+    top: 0px  ;
+    overflow: scroll  ;
+    background: radial-gradient(77.6% 11958.98% at 16.74% 65.95%, #491855 0%, #C238E4 100%);
+
+    font-family: 'IM FELL English SC';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 51px;
+
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+    margin-bottom: 0;
+    gap: 1em
+
+
+}
+
