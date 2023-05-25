@@ -1,15 +1,14 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    scroll-behavior: smooth;
-    border: none;
-    outline: none;
-
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        scroll-behavior: smooth;
+        border: none;
+        outline: none;
 }
 
-/*Scrol bar eka wenas kirimata*/
+/************************Scrol bar style eka wenas kirimata***********************/
 
 ::-webkit-scrollbar{
     width: 10px;
@@ -21,7 +20,7 @@
 }
 
 
-/*navigation bar style*/
+/***********************************navigation bar style*******************************************/
 
 .navbar {
     background-color: black;
@@ -31,7 +30,6 @@
     z-index: 999;
     padding: 1.5rem;
     font-family:"IM Fell English",Serif;
-
 }
 
 .navbar.sticky{
@@ -76,8 +74,7 @@ span{
     color: #0AD9F5;
 }
 
-
-/*home page style*/
+    /*********************************************home page style*******************************************/
 
 .home{
     align-items: center;
@@ -102,14 +99,13 @@ span{
 }
 
 .profile_pic{
-
     position: absolute;
     right: 300px;
     bottom: 0;
     top: 150px;
     display: flex;
-
 }
+
 .shape{
     width: 400px;
     height: 500px;
@@ -173,7 +169,8 @@ span{
     box-shadow: none;
 }
 
-/*about me style*/
+
+/***********************************about me style****************************************/
 
 .about{
     display: flex;
@@ -210,7 +207,8 @@ span{
     margin: 2rem 0 3rem;
 }
 
-/*skill style*/
+
+/*******************************************************skill style************************************************/
 
 .skills{
     background: linear-gradient(133.44deg, #000000 29.88%, #114C8F 110.59%);
@@ -309,7 +307,7 @@ span{
     z-index: 10;
 }
 
-/*gallery style*/
+/*****************************************************gallery style************************************************/
 
 .gallery{
     background: linear-gradient(133.44deg, #000000 29.88%, #114C8F 110.59%);
@@ -351,7 +349,7 @@ span{
 }
 
 
-/*services section style*/
+/********************************************************services section style*********************************************/
 
 .services{
     background: linear-gradient(133.44deg, #000000 29.88%, #114C8F 110.59%);
@@ -404,7 +402,7 @@ span{
     margin: 1rem 0 3rem;
 }
 
-/*projects style*/
+/***********************************************************projects style***********************************************/
 
 .projects{
     background: linear-gradient(133.44deg, #000000 29.88%, #114C8F 110.59%);
@@ -483,7 +481,7 @@ span{
     color: #1B1B1B;
 }
 
-/*!*contact style!**/
+/****************************************************!*contact style!************************************************/
 
 .contact{
     background: linear-gradient(133.44deg, #000000 29.88%, #114C8F 110.59%);
@@ -535,7 +533,7 @@ span{
     cursor: pointer;
 }
 
-/*footer style*/
+/**************************************************************footer style****************************************************/
 
 .footer h3{
     font-size: 1.4rem;
