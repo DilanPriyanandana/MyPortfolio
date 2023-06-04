@@ -253,7 +253,7 @@
         }
 
         .skills p {
-            /*font-family: noto sans-serif;*/
+            font-family: 'Poppins', sans-serif;
         }
 
         .skills h2 {
@@ -357,7 +357,7 @@
 
     .gallery_box {
         position: relative;
-        border-radius: 10%;
+        border-radius: 5%;
         box-shadow: 0 0 1rem #1f242d;
         overflow: hidden;
         display: flex;
@@ -365,7 +365,7 @@
     }
 
     .gallery_box:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
 
