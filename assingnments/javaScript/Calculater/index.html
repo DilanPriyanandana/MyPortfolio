@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculater</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <input type="text" id="result" placeholder="0" readonly>
+
+        <div>
+            <button class="color" onclick="clearAll()">AC</button>
+            <button class="span-2 color" onclick="deleteLastCharacter()" >DEL</button>
+            <button class="color" onclick="appendToResult('%')">%</button>
+            <button class="color" onclick="operation('/')">/</button>
+        </div>
+
+        <div>
+            <button onclick="appendNumber(7)">7</button>
+            <button onclick="appendNumber(8)">8</button>
+            <button onclick="appendNumber(9)">9</button>
+            <button class="color" onclick="operation('*')">x</button>
+        </div>
+
+        <div>
+            <button onclick="appendNumber(4)">4</button>
+            <button onclick="appendNumber(5)">5</button>
+            <button onclick="appendNumber(6)">6</button>
+            <button class="color" onclick="operation('-')">-</button>
+        </div>
+
+        <div>
+            <button onclick="appendNumber(1)">1</button>
+            <button onclick="appendNumber(2)">2</button>
+            <button onclick="appendNumber(3)">3</button>
+            <button class="color" onclick="operation('+')">+</button>
+        </div>
+
+        <div>
+            <button onclick="appendNumber(0)">0</button>
+            <button onclick="appendToResult('.')">.</button>
+            <button class="color big-button" onclick="calculate()">=</button>
+        </div>
+
+    </div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
