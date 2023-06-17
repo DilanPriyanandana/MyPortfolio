@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/styles.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" rel="stylesheet">
+    <style>
+        ul > li {
+            cursor: pointer;
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: nowrap;
+            margin-top: 70px;
+            justify-content:  space-around;
+        }
+        .dash:hover {
+            cursor: pointer;
+            transform: translateY(20px);
+            transition: 0.5s ease;
+        }
+        /*body {*/
+        /*    background: rgb(50,200,80);*/
+        /*    background: linear-gradient(90deg, rgba(50,200,80,1) 0%, rgba(26,226,242,1) 51%, rgba(85,134,201,1) 100%);*/
+        /*}*/
+    </style>
+
+</head>
+<body>
+<!--header-->
+
+<header class="jumbotron bg-primary text-white p-3">
+    <h1 class="position-absolute" id="nav"></h1>
+    <ul class="list-group list-group-horizontal text-light justify-content-start font-weight-bold">
+        <a class="navbar-brand fw-bold text-dark" href="#">
+            <img src="assets/img/cart%20logo.png" alt="Bootstrap" width="40" height="40"> POS System </a>
+                    <li class="list-group-item bg-danger text-white" id="lnkHome"><a class="text-white" href="index.html">Home</a></li>
+                    <li class="list-group-item bg-white" id="lnkCustomer"><a href="pages/customer.html">Customer</a></li>
+                    <li class="list-group-item bg-white" id="lnkItem"><a href="pages/item.html">Item</a></li>
+                    <li class="list-group-item bg-white" id="lnkOrders"><a href="pages/purchase-order.html">Orders</a></li>
+                </ul>
+            </header>
+
+
+<!--dashboard content-->
+<main class="container-fluid " id="dashboardContent">
+    <section id="home" style="padding-left: 45px;">
+        <section class="cards">
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="dash card h-100" style="width: 360px;">
+                        <a href="pages/purchase-order.html" ><img src="assets/img/shopping-4974313_1280.jpg" class="card-img-top"></a>
+                        <div class="card-body">
+                            <h1 class="card-title">Shop Now</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dash card h-100" style="width: 360px;">
+                        <a href="pages/customer.html" > <img src="assets/img/customer%20.jpg" class="card-img-top"></a>
+                        <div class="card-body">
+                            <h1 class="card-title">Customers</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="dash card h-100" style="width: 360px;">
+                        <a href="pages/item.html" > <img src="assets/img/product.jpg" class="card-img-top" > </a>
+                        <div class="card-body">
+                            <h1 class="card-title">Products</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </section>
+
+</main>
+
+<script src="../js/jquery-3.6.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

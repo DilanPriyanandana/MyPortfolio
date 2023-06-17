@@ -1,11 +1,4 @@
 
-// ******************   loading  *******************
-
-    window.addEventListener("load", function (){
-        document.querySelector(".loader").classList.add("hidden");
-                                              });
-
-
     // ************************* toggle icon navbar*********************
 
     let menuIcon = document.querySelector('#menu-icon');

@@ -33,13 +33,6 @@
 
 <body>
 
-<!-- *********************  loader *****************-->
-
-<div class="loader">
-    <img src="assets/icon/Spinner-1s-200px.gif" alt="loading">
-    <img src="https://deelay.me/2000/https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Fimage&psig=AOvVaw2eCUBvDXVDTM6NF7BKvPr9&ust=1686094865596000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJDynv6mrf8CFQAAAAAdAAAAABAE">
-</div>
-    
 <!--  ******************************      navigation bar       ***************************************-->
 
 <header class="header">
@@ -350,8 +343,25 @@
 <!--scroll reveal-->
 <script src="https://unpkg.com/scrollreveal"></script>
 
+<!--**************************************      loader    *************************************-->
+
+<div id="loader">
+    <div></div>
+</div>
+
 <!--custom js-->
 <script src="js/javaScipt.js"></script>
+
+<script>
+    let loader = document.getElementById("loader");
+    //this is it. this will execute after the window is fully loaded
+    window.addEventListener("load", function () {
+        console.log("This message will print just after fully loading the website")
+
+        //hide the loader
+        loader.style.display = 'none';
+    });
+</script>
 
 </body>
 
