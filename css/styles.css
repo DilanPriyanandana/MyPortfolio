@@ -37,6 +37,74 @@
     background:#0AD9F5 ;
 }
 
+/***************************** fixed message icon*****************************/
+
+    .fixedMessage{
+        z-index: 20;
+    }
+
+    .fixedMessage a{
+    position: fixed;
+    bottom: 20px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    font-size: 40px;
+    text-align: center;
+    border-radius: 50%;
+    background: transparent;
+    color: #0AD9F5;
+    transition: .5s ease;
+    padding: 10px;
+
+}
+    .message{
+        position: fixed;
+        bottom: 20px;
+        right: 25px;
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        animation-name: water;
+        animation-iteration-count: infinite;
+        animation-duration: 2s;
+        animation-direction: normal;
+    }
+
+
+    @keyframes water {
+        0%{
+            box-shadow: 0 0 5px #0AD9F5;
+        }
+
+        20%{
+            box-shadow: 0 0 10px #0AD9F5;
+        }
+        40%{
+            box-shadow: 0 0 20px #0AD9F5;
+        }
+        60%{
+            box-shadow: 0 0 30px #0AD9F5;
+        }
+
+        80%{
+            box-shadow: 0 0 40px #0AD9F5;
+        }
+        100%{
+            box-shadow: 1px 1px 50px #0AD9F5;
+        }
+    }
+
+    .fixedMessage a:hover{
+        text-decoration: none;
+        background: #0AD9F5 ;
+        color: #323946 ;
+        box-shadow: 0 0 10px #0AD9F5;
+        transform: scale(1.1);
+        cursor: pointer;
+    }
+
+
 /*!*******************************************navigation bar style************************************!*/
 
     .header{
@@ -377,8 +445,7 @@
     .gallery_content {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        align-items: center;
-        gap: 2.2rem;
+        gap: 10px;
     }
     .gallery h2 {
         margin-bottom: 4rem;
@@ -386,16 +453,15 @@
 
     .gallery_box {
         position: relative;
-        border-radius: 5%;
-        box-shadow: 0 0 1rem #1f242d;
+        border-radius: 10px;
         overflow: hidden;
-        display: flex;
-        transition: .5s ease;
+        transition: .3s ease;
     }
 
     .gallery_box:hover {
             transform: scale(1.02);
         }
+
 
 
 /*        !********************************************************services section style*********************************************!*/
@@ -553,6 +619,10 @@
 
 
     /*        !****************************************************!*contact style!************************************************!*/
+
+    .contact{
+        z-index: 25;
+    }
 
         .contact h2 {
             margin-bottom: 3rem;
