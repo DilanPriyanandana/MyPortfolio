@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Manage</title>
+    <meta content="width=device-width initial-scale=1" name="viewport">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" rel="stylesheet">
+    <style>
+        ul > li {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <a class="navbar-brand" >
+            <img src="../assets/img/shop.png" alt="Logo" width="60" height="44" class="d-inline-block align-text-top">
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../pages/customer.html">Customers</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../pages/item.html">Items</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../pages/purchase-order.html">Orders</a></li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+<!--item content-->
+
+<main class="container-fluid justify-content-center mt-4 align-content-center" id="itemContent">
+    <h1 class="text-center font-weight-bolder text-dark">Item Form</h1>
+    <section class="row col-12">
+
+        <section  class="col-12 my-5">
+            <section class="card">
+                <div class="card-header bg-info font-weight-bolder text-light text-center">Input Details</div>
+
+                <form class="item-form px-5" >
+                    <div class="row">
+                        <div class="col-6">
+                            <label for="ItemCode" class="form-label"></label>
+                            <input type="text" placeholder="Item Code" class="form-control "  id="ItemCode">
+                        </div>
+                        <div class="col-6">
+                            <label for="ItemName" class="form-label"></label>
+                            <input type="text" placeholder="Item Name" class="form-control"  id="ItemName" >
+                        </div>
+                        <div class="col-6">
+                            <label for="ItemPrice" class="form-label"></label>
+                            <input type="text" placeholder="Item Price" class="form-control"  id="ItemPrice" >
+                        </div>
+                        <div class="col-6">
+                            <label for="Qty" class="form-label"></label>
+                            <input type="text" placeholder="Qty" class="form-control"  id="Qty" >
+                        </div>
+                    </div>
+
+
+                    <div class="m-3 justify-content-center">
+                        <div style="display: inline-block" class="me-2">
+                            <button id="btnItem" type="button" class="btn btn-success">Save</button>
+                        </div>
+                        <div style="display: inline-block" class="me-2">
+                            <button id="btnItemUpdate" type="button" class="btn btn-primary">Update</button>
+                        </div>
+                        <div style="display: inline-block" class="me-2">
+                            <button id="btnItemDelete" type="button" class="btn btn-danger">Delete</button>
+                        </div>
+                        <div style="display: inline-block" class="me-2">
+                            <button id="btnItemClear" type="button" class="btn btn-warning">Clear</button>
+                        </div>
+                        <div style="display: inline-block">
+                            <button id="btnItemGetAll" type="button" class="btn btn-secondary">Get All</button>
+                        </div>
+                    </div>
+
+                </form>
+            </section>
+        </section>
+
+        <section  class="col-12 mx-0 my-4 justify-content-center">
+            <section class="mx-4">
+                <table class="table table-bordered text-white">
+                    <thead>
+                    <tr >
+                        <th scope="col" class="bg-secondary">Code</th>
+                        <th scope="col" class="bg-secondary">Name</th>
+                        <th scope="col" class="bg-secondary">Price</th>
+                        <th scope="col" class="bg-secondary">Qty On Hand</th>
+                    </tr>
+                    </thead>
+                    <tbody class="bg-light text-dark" id="tblItem">
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </section>
+</main>
+
+
+<script>
+
+
+        var itemDB = [
+        {code: "I001", name: "rice", price: 100, qtyOnHand: 1000},
+        {code: "I002", name: "parippu", price: 120, qtyOnHand: 800},
+        {code: "I003", name: "pol", price: 80, qtyOnHand: 60},
+
+        ];
+
+        //load all existing customers
+        getAllItems();
+
+        <!-- Select Save Customer Btn and Bind an event   -->
+        $("#btnItem").click(function () {
+        saveItem();
+    });// get all event
+        $("#btnItemGetAll").click(function () {
+        getAllItems();
+    });
+
+
+        //bind table tr events
+        function bindTrEvents() {
+        $('#tblItem>tr').click(function () {
+            //get the selected rows data
+            let code = $(this).children().eq(0).text();
+            let name = $(this).children().eq(1).text();
+            let price = $(this).children().eq(2).text();
+            let qtyOnHand = $(this).children().eq(3).text();
+
+            //set the selected rows data to the input fields
+            $("#ItemCode").val(code);
+            $("#ItemName").val(name);
+            $("#ItemPrice").val(price);
+            $("#Qty").val(qtyOnHand);
+        })
+    }
+
+
+        //delete btn event
+        $("#btnItemDelete").click(function () {
+        let code = $("#ItemCode").val();
+
+        let consent = confirm("Do you want to delete.?");
+        if (consent) {
+        let response = deleteItem(code);
+        if (response) {
+        alert("Item Deleted");
+        clearItemInputFields();
+        getAllItems();
+    } else {
+        alert("Item Not Removed..!");
+    }
+    }
+
+
+    });
+
+        //update event
+        $("#btnItemUpdate").click(function () {
+        let code = $("#ItemCode").val();
+        updateItem(code);
+        clearItemInputFields();
+    });
+
+        $("#btnItemClear").click(function () {
+        clearItemInputFields();
+    });
+
+
+        function saveItem() {
+        let itemCode = $("#ItemCode").val();
+
+        let codePattern = /^(I)[0-9]{3}$/;
+        if (codePattern.test($("#ItemCode").val())){
+        $("#ItemCode").css('border','2px solid blue');
+    }else{
+        $("#ItemCode").css('border','2px solid red')
+        if (e.key==='Enter'){
+        console.log(e);
+        e.preventDefault();
+    }
+    }
+
+        let namePattern = /^[A-Za-z\s]+$/;
+        if (namePattern.test($("#ItemName").val())){
+        $("#ItemName").css('border','2px solid blue');
+    }else{
+        $("#ItemName").css('border','2px solid red')
+        if (e.key==='Enter'){
+        console.log(e);
+        e.preventDefault();
+    }
+    }
+
+        let pricePattern =/[(0-9)+.?(0-9)*]/;
+
+        if (pricePattern.test($("#ItemPrice").val())){
+        $("#ItemPrice").css('border','2px solid blue');
+    }else{
+        $("#ItemPrice").css('border','2px solid red')
+        if (e.key==='Enter'){
+        console.log(e);
+        e.preventDefault();
+    }
+    }
+
+        let qtyOnhandPattern = /[(0-9)+.?(0-9)*]/;
+        if (qtyOnhandPattern.test($("#Qty").val())){
+        $("#Qty").css('border','2px solid blue');
+    }else{
+        $("#Qty").css('border','2px solid red')
+        if (e.key==='Enter'){
+        console.log(e);
+        e.preventDefault();
+    }
+    }
+
+
+        if (searchItem(itemCode.trim()) == undefined) {
+        let itemName = $("#ItemName").val();
+        let itemPrice = $("#ItemPrice").val();
+        let itemQtyOnHand = $("#Qty").val();
+
+        //set item details to another array
+        // let item=[itemCode,itemName,itemPrice,itemQtyOnHand];
+
+        let itemOb = {
+        code: itemCode,
+        name: itemName,
+        price: itemPrice,
+        qtyOnHand: itemQtyOnHand
+    }
+
+        //add item record to the item array
+        itemDB.push(itemOb);
+        clearItemInputFields();
+        getAllItems();
+
+    } else {
+        alert("Item already exits.!");
+        clearItemInputFields();
+    }
+    }
+
+        function getAllItems() {
+        //clear all tbody data before add
+        $("#tblItem").empty();
+
+        //get all Items
+        for (let i = 0; i < itemDB.length; i++) {
+        let code = itemDB[i].code;
+        let name = itemDB[i].name;
+        let price = itemDB[i].price;
+        let qtyOnHand = itemDB[i].qtyOnHand;
+
+        let row = `<tr>
+                     <td>${code}</td>
+                     <td>${name}</td>
+                     <td>${price}</td>
+                     <td>${qtyOnHand}</td>
+                    </tr>`;
+
+        // //and then append the row to tableBody
+        $("#tblItem").append(row);
+
+        //invoke this method every time
+        // we add a row // otherwise click
+        //event will not work
+        bindTrEvents();
+
+
+    }
+    }
+
+        function deleteItem(code) {
+        for (let i = 0; i < itemDB.length; i++) {
+        if (itemDB[i].code == code) {
+        itemDB.splice(i, 1);
+        return true;
+    }
+    }
+        return false;
+    }
+
+        function searchItem(code) {
+        return itemDB.find(function (item) {
+        //if the search id match with customer record
+        //then return that object
+        return item.code == code;
+    });
+    }
+
+
+        function updateItem(code) {
+        if (searchItem(code) == undefined) {
+        alert("No such Item..please check the ID");
+    } else {
+        let consent = confirm("Do you really want to update this Item.?");
+        if (consent) {
+        let item = searchItem(code);
+        //if the item available can we update.?
+
+        let itemName = $("#ItemName").val();
+        let itemPrice= $("#ItemPrice").val();
+        let itemQtyOnHand = $("#Qty").val();
+
+        item.name = itemName;
+        item.price = itemPrice;
+        item.qtyOnHand= itemQtyOnHand;
+
+        getAllItems();
+    }
+    }
+
+    }
+
+        function clearItemInputFields() {
+        $("#ItemCode,#ItemName,#ItemPrice,#Qty").val("");
+        $("#ItemCode").focus();
+    }
+
+
+        //disable tab
+        $("#ItemCode,#ItemName,#ItemPrice,#Qty").keydown(function (e) {
+
+        if (e.key == "Tab") {
+        e.preventDefault();
+    }
+    });
+
+        $("#ItemCode").keydown(function (e) {
+        if (e.key == "Enter") {
+        $("#ItemName").focus();
+    }
+    });
+
+        $("#ItemName").keydown(function (e) {
+        if (e.key == "Enter") {
+        $("#ItemPrice").focus();
+    }
+    });
+
+        $("#ItemPrice").keydown(function (e) {
+        if (e.key == "Enter") {
+        $("#Qty").focus();
+    }
+    });
+
+        $("#Qty").keydown(function (e) {
+        if (e.key == "Enter") {
+        //save item
+        saveItem();
+
+    }
+    });
+
+</script>
+</body>
+</html>

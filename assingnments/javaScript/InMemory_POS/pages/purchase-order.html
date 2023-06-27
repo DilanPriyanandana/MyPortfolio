@@ -2,225 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>SPA</title>
+    <title>Purchase Order Manage</title>
     <meta content="width=device-width initial-scale=1" name="viewport">
-    <link href="assets/css/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../assets/normalize.css">
-    <link href="assets/css/styles.css" rel="stylesheet">
+    <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../assets/css/styles.css" rel="stylesheet">
     <link crossorigin="anonymous" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
           integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" rel="stylesheet">
+    <style>
+        ul > li {
+            cursor: pointer;
+        }
+    </style>
 
 </head>
 <body>
+<nav class="navbar navbar-expand-lg bg-info">
+    <div class="container-fluid">
+        <a class="navbar-brand" >
+            <img src="../assets/img/shop.png" alt="Logo" width="60" height="44" class="d-inline-block align-text-top">
+        </a>
 
-<!--*************** Navigation Bar *************-->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <nav class="navbar navbar-expand-lg bg-info">
-        <div class="container-fluid">
-            <a class="navbar-brand" >
-                <img src="assets/img/shop.png" alt="Logo" width="60" height="44" class="d-inline-block align-text-top">
-            </a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link active text-white" aria-current="page" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../pages/customer.html">Customers</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../pages/item.html">Items</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="../pages/purchase-order.html">Orders</a></li>
+            </ul>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" id="lnkHome"  href="#dashboardContent">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" id="lnkCustomer"  href="#customerContent">Customers</a></li>
-                    <li class="nav-item"><a class="nav-link" id="lnkItem"  href="#itemContent">Items</a></li>
-                    <li class="nav-item"><a class="nav-link" id="lnkOrders"  href="#orderContent">Orders</a></li>
-                </ul>
-
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-secondary" type="submit">Search</button>
-                </form>
-            </div>
         </div>
-    </nav>
+    </div>
+</nav>
 
-<!--*************** Dashboard content*************-->
-
-    <main class="container-fluid" id="dashboardContent">
-        <section id="home" style="padding-left: 45px;">
-            <section class="cards">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
-                    <div class="col" id="orderform">
-                        <div class="dash card h-100" style="width: 360px;">
-                            <img src="assets/img/shopping-4974313_1280.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h1 class="card-title">Shop Now</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col" id="customerform">
-                        <div class="dash card h-100" style="width: 360px;">
-                            <img src="assets/img/customer%20.jpg" class="card-img-top">
-                            <div class="card-body">
-                                <h1 class="card-title">Customers</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col" id="itemform">
-                        <div class="dash card h-100" style="width: 360px;">
-                            <img src="assets/img/product.jpg" class="card-img-top" >
-                            <div class="card-body">
-                                <h1 class="card-title">Products</h1>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
-    </main>
-
-                    <!--customer content-->
-
-<main class="container-fluid justify-content-center mt-4 align-content-center" id="customerContent">
-    <h1 class="text-center font-weight-bolder text-dark">Customer Form</h1>
-    <section class="row col-12">
-
-        <section  class="col-12 my-5">
-            <section class="card">
-                <div class="card-header bg-info font-weight-bolder text-light text-center">Input Details</div>
-
-                <form class="item-form px-5" >
-                    <div class="row">
-
-                            <div class="col-6">
-                                <label for="txtCustomerID" class="form-label"></label>
-                                <input type="text" placeholder="Customer ID" class="form-control "  id="txtCustomerID">
-                            </div>
-                            <div class="col-6">
-                                <label for="txtCustomerName" class="form-label"></label>
-                                <input type="text" placeholder="Customer Name" class="form-control"  id="txtCustomerName" >
-                            </div>
-                            <div class="col-6">
-                                <label for="txtCustomerAddress" class="form-label"></label>
-                                <input type="text" placeholder="Customer Address" class="form-control"  id="txtCustomerAddress" >
-                            </div>
-                            <div class="col-6">
-                                <label for="txtCustomerContact" class="form-label"></label>
-                                <input type="text" placeholder="Customer Contact" class="form-control"  id="txtCustomerContact" >
-                            </div>
-                    </div>
-
-
-                    <div class="m-3 justify-content-center">
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnCustomer" type="button" class="btn btn-success">Save</button>
-                        </div>
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnUpdate" type="button" class="btn btn-primary">Update</button>
-                        </div>
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnCusDelete" type="button" class="btn btn-danger">Delete</button>
-                        </div>
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btn-clear1" type="button" class="btn btn-warning">Clear</button>
-                        </div>
-                        <div style="display: inline-block">
-                            <button id="btnGetAll" type="button" class="btn btn-secondary">Get All</button>
-                        </div>
-                    </div>
-
-                </form>
-            </section>
-        </section>
-
-        <section  class="col-12 mx-0 my-4 justify-content-center">
-            <section class="mx-4">
-                <table class="table table-bordered text-white">
-                    <thead >
-                    <tr>
-                        <th scope="col" class="bg-secondary">ID</th>
-                        <th scope="col" class="bg-secondary">Name</th>
-                        <th scope="col" class="bg-secondary">Address</th>
-                        <th scope="col" class="bg-secondary">Contact</th>
-                    </tr>
-                    </thead>
-                    <tbody class="bg-light text-dark" id="tblCustomer">
-                    </tbody>
-                </table>
-            </section>
-        </section>
-    </section>
-</main>
-
-
-<!--item content-->
-
-<main class="container-fluid justify-content-center mt-4 align-content-center" id="itemContent">
-    <h1 class="text-center font-weight-bolder text-dark">Item Form</h1>
-    <section class="row col-12">
-
-        <section  class="col-12 my-5">
-            <section class="card">
-                <div class="card-header bg-info font-weight-bolder text-light text-center">Input Details</div>
-
-                <form class="item-form px-5" >
-                    <div class="row">
-                        <div class="col-6">
-                            <label for="ItemCode" class="form-label"></label>
-                            <input type="text" placeholder="Item Code" class="form-control "  id="ItemCode">
-                        </div>
-                        <div class="col-6">
-                            <label for="ItemName" class="form-label"></label>
-                            <input type="text" placeholder="Item Name" class="form-control"  id="ItemName" >
-                        </div>
-                        <div class="col-6">
-                            <label for="ItemPrice" class="form-label"></label>
-                            <input type="text" placeholder="Item Price" class="form-control"  id="ItemPrice" >
-                        </div>
-                        <div class="col-6">
-                            <label for="Qty" class="form-label"></label>
-                            <input type="text" placeholder="Qty" class="form-control"  id="Qty" >
-                        </div>
-                    </div>
-
-
-                    <div class="m-3 justify-content-center">
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnItem" type="button" class="btn btn-success">Save</button>
-                        </div>
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnItemUpdate" type="button" class="btn btn-primary">Update</button>
-                        </div>
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnItemDelete" type="button" class="btn btn-danger">Delete</button>
-                        </div>
-                        <div style="display: inline-block" class="me-2">
-                            <button id="btnItemClear" type="button" class="btn btn-warning">Clear</button>
-                        </div>
-                        <div style="display: inline-block">
-                            <button id="btnItemGetAll" type="button" class="btn btn-secondary">Get All</button>
-                        </div>
-                    </div>
-
-                </form>
-            </section>
-        </section>
-
-        <section  class="col-12 mx-0 my-4 justify-content-center">
-            <section class="mx-4">
-                <table class="table table-bordered text-white">
-                    <thead>
-                    <tr >
-                        <th scope="col" class="bg-secondary">Code</th>
-                        <th scope="col" class="bg-secondary">Name</th>
-                        <th scope="col" class="bg-secondary">Price</th>
-                        <th scope="col" class="bg-secondary">Qty On Hand</th>
-                    </tr>
-                    </thead>
-                    <tbody class="bg-light text-dark" id="tblItem">
-                    </tbody>
-                </table>
-            </section>
-        </section>
-    </section>
-</main>
 
 <!--Place Order Content-->
 
@@ -425,16 +242,7 @@
     </div>
 </main>
 
-<script src="../js/jquery-3.6.1.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="controllers/DashboardController.js"></script>
-<script src="db/db.js"></script>
-<script src="models/Customer.js"></script>
-<script src="models/Item.js"></script>
-<script src="controllers/CustomerController.js"></script>
-<script src="controllers/ItemController.js"></script>
-<script src="controllers/validations/CustomerValidations.js"></script>
-<script src="controllers/validations/ItemValidations.js"></script>
+<script src="../../js/jquery-3.7.0.min.js"></script>
 
 </body>
 </html>
